@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour {
 
-
     private string type = "red";
+    public float force;
 
     int _damage = 10;
     int damage
@@ -24,6 +24,7 @@ public class RedBullet : MonoBehaviour {
         ApplyForce();
 
         transform.parent = null;
+        Destroy(gameObject, 10f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,7 +39,6 @@ public class RedBullet : MonoBehaviour {
 
     private void ApplyForce()
     {
-        Vector3 vector = Vector3.forward;
-        rb.AddForce(vector * 800);
+        rb.AddForce(transform.forward * force);
     }
 }
