@@ -27,7 +27,7 @@ public class GunnerShooter : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
-                Instantiate(BulletPrefab, CannonEnd.position, transform.localRotation, transform);
+                Instantiate(BulletPrefab, CannonEnd.position, transform.rotation, transform);
                 currentCDVal = 0f;
             }
         }
