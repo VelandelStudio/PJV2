@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour {
 
-    private string type = "red";
+    public string type = "red";
     public float force;
-
-    int _damage = 10;
-    int damage
-    {
-        get
-        {
-            return _damage;
-        }
-    }
+    public int damage = 10;
 
     private Rigidbody rb;
 
@@ -29,10 +21,15 @@ public class RedBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (type == "red")
+        if (other.GetComponent<RedEnemy>())
         {
-            Debug.Log("Touch Aso");
-        }
+            Vector3 direction = other.transform.position - transform.position;
+
+            RedEnemy target = other.GetComponent<RedEnemy>();
+            target.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * 500f, transform.position);
+
+            target.TakeDamage(damage, this);
+        } 
 
         Destroy(gameObject);
     }
