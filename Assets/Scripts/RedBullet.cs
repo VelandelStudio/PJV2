@@ -31,7 +31,10 @@ public class RedBullet : MonoBehaviour {
             target.TakeDamage(damage, this);
         } 
 
-        Destroy(gameObject);
+        if (other.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void ApplyForce()
