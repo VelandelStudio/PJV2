@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour {
 
-    public string type = "red";
+    public string type;
     public float force;
     public int damage = 10;
 

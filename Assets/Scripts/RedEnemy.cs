@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RedEnemy : MonoBehaviour {
 
@@ -14,6 +15,10 @@ public class RedEnemy : MonoBehaviour {
         {
             hp -= damage;
         }
+        else
+        {
+            Debug.Log("Immune Asooooo");
+        }
 
         if (hp <= 0)
         {
@@ -24,6 +29,7 @@ public class RedEnemy : MonoBehaviour {
     private void BeKilled()
     {
         Destroy(GetComponent<Collider>());
+        Destroy(GetComponent<NavMeshAgent>());
         Destroy(gameObject, 2f);
     }
 
