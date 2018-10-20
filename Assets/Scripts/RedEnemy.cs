@@ -8,6 +8,7 @@ public class RedEnemy : MonoBehaviour {
     public string type = "red";
 
     private int hp = 30;
+    private int scorePoints = 30;
 
     public void TakeDamage(int damage, RedBullet bullet)
     {
@@ -28,6 +29,8 @@ public class RedEnemy : MonoBehaviour {
 
     private void BeKilled()
     {
+        GameManagement.instance.Score += scorePoints;
+
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
         Destroy(gameObject, 2f);
