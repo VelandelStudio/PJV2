@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 198473283642066628}
   m_Layer: 0
   m_Name: PS_CannonShoot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
