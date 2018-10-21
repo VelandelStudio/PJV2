@@ -8,15 +8,25 @@ public class GunnerShooter : MonoBehaviour {
     public Transform CannonEnd;
     public GameObject BulletPrefab;
 
+    public AudioSource audioSource;
+    public ParticleSystem PS_CannonShoot;
+
     private float currentCDVal;
 
+
+    /// <summary>
+    /// On start, we set up everything about Cooldown. Default CD is 0.25 sec.
+    /// </summary>
     private void Start ()
     {
-        CoolDown = CoolDown == 0 ? 0.5f : CoolDown;
+        CoolDown = CoolDown == 0 ? 0.25f : CoolDown;
         currentCDVal = CoolDown;
     }
 	
-	// Update is called once per frame
+    /// <summary>
+    /// On Update, we are checking if we are on Cooldown. If we are not, and if the player gets Mouse 0 down, we shoot a bullet.
+    /// Shooting a bullet launches sounds and PS. We also reset the CD.
+    /// </summary>
 	void Update () {
 
         if(currentCDVal != CoolDown)
@@ -28,6 +38,8 @@ public class GunnerShooter : MonoBehaviour {
             if (Input.GetMouseButton(0))
             {
                 Instantiate(BulletPrefab, CannonEnd.position, transform.rotation, transform);
+                audioSource.Play();
+                PS_CannonShoot.Play(true);
                 currentCDVal = 0f;
             }
         }
