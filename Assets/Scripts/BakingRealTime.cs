@@ -7,7 +7,7 @@ public class BakingRealTime : MonoBehaviour {
 
     public NavMeshSurface[] surfaces;
 	
-	void Update ()
+	void Start ()
     {
 	    for(int i = 0; i < surfaces.Length; i++)
         {
