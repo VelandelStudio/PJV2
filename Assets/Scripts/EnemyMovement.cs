@@ -18,7 +18,13 @@ public class EnemyMovement : MonoBehaviour {
     {
         if (nav)
         {
-            nav.SetDestination(player.position);
+            MoveToLocation(player.position);
         }
+    }
+
+    public void MoveToLocation(Vector3 targetPoint)
+    {
+        nav.destination = targetPoint;
+        nav.isStopped = false;
     }
 }
