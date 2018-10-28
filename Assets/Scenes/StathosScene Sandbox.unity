@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 2359c7ca5df3ced4994825b49135366b, type: 2}
---- !u!1001 &117699424
+--- !u!1001 &162867930
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -280,7 +280,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.3
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -313,13 +313,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 468588008}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 1.64, y: 6.93, z: -2.85}
+  m_LocalRotation: {x: -0.16256368, y: -0.84269816, z: 0.38196397, w: 0.34283596}
+  m_LocalPosition: {x: 155, y: 373, z: -269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.161003, y: -123.979004, z: 39.273003}
 --- !u!1 &783073677
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +526,10 @@ Prefab:
     - target: {fileID: 4182743472258880, guid: dc0f441e9078d144880402f0c7c5bf59, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939187750207042, guid: dc0f441e9078d144880402f0c7c5bf59, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -35.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc0f441e9078d144880402f0c7c5bf59, type: 2}
