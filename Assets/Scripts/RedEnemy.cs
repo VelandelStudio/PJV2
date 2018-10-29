@@ -35,5 +35,4 @@ public class RedEnemy : MonoBehaviour {
         Destroy(GetComponent<NavMeshAgent>());
         Destroy(gameObject, 2f);
     }
-
 }

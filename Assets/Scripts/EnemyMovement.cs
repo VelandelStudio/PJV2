@@ -7,18 +7,27 @@ public class EnemyMovement : MonoBehaviour {
 
     Transform player;
     NavMeshAgent nav;
+    EnemyAttack enemyAttack;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
+        enemyAttack = GetComponent<EnemyAttack>();
     }
 
     private void Update()
     {
         if (nav)
         {
-            MoveToLocation(player.position);
+            if (enemyAttack.isAttacking)
+            {
+                nav.isStopped = true;
+            }
+            else
+            {
+                MoveToLocation(player.position);
+            }
         }
     }
 
