@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 195174882086709198}
   - component: {fileID: 114951186706617706}
   - component: {fileID: 114870515574408208}
+  - component: {fileID: 114831816603260672}
   m_Layer: 0
   m_Name: RedDog
   m_TagString: Untagged
@@ -635,7 +636,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648431234557656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 42, z: 0}
+  m_LocalPosition: {x: 9.794096, y: 42, z: 15.390084}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children:
   - {fileID: 4074748081246072}
@@ -1170,6 +1171,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114831816603260672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648431234557656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fef6014876de447bb780f511b9a019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerAttack: 5
+  attackRange: 6
+  isAttacking: 0
 --- !u!114 &114870515574408208
 MonoBehaviour:
   m_ObjectHideFlags: 1
