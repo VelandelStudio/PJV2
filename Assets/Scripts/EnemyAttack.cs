@@ -40,13 +40,18 @@ public class EnemyAttack : MonoBehaviour {
     private float CalculDistance()
     {
         float result = Vector3.Distance(player.position, transform.position);
-        
+
         return result;
     }
 
     private void DealDamage()
     {
-        // Do Things
+        PlayerHealth playerHealth = player.GetComponentInParent<PlayerHealth>();
+
+        if (playerHealth)
+        {
+            playerHealth.TakeDamage(powerAttack);
+        }
     }
 
     private void Attacking()
@@ -65,7 +70,6 @@ public class EnemyAttack : MonoBehaviour {
                 canAttack = false;
 
                 DealDamage();
-
                 StartCoroutine(AttackDelayed(animTime));
             }
         }
@@ -73,8 +77,6 @@ public class EnemyAttack : MonoBehaviour {
 
     IEnumerator AttackDelayed(float time)
     {
-        Debug.Log(time);
-
         yield return new WaitForSeconds(time);
 
         canAttack = true;
