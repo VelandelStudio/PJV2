@@ -30,3 +30,4 @@ sysinfo.txt
 *.asset binary
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+Assets/Scenes/StathosScene Sandbox.unity

@@ -52,6 +52,6 @@ public class RedBullet : MonoBehaviour {
     {
         PS_RedBulletHits.transform.SetParent(null);
         PS_RedBulletHits.Play(true);
-        Destroy(gameObject);
+        Destroy(PS_RedBulletHits.gameObject,5f);
     }
 }
