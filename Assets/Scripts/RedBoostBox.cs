@@ -16,9 +16,16 @@ public class RedBoostBox : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag =="Player")
+        Debug.Log(other.tag);
+		if(other.gameObject.tag == "Player")
 		{
-            Debug.Log("Hello ammo");
+			if(other.transform.root.gameObject.GetComponentInChildren<GunnerShooter>().CollectAmmo(AmmoValue))
+			{
+				PS_OnBoxPickedUp.transform.SetParent(null);
+				PS_OnBoxPickedUp.Play(true);
+				Destroy(PS_OnBoxPickedUp.gameObject,5f);
+				Destroy(gameObject);
+			}
 		}
 	}
 }
