@@ -32,11 +32,7 @@ public class RedBullet : MonoBehaviour {
 
         if (other.GetComponent<RedEnemy>())
         {
-            Vector3 direction = other.transform.position - transform.position;
-
             RedEnemy target = other.GetComponent<RedEnemy>();
-            target.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * 500f, transform.position);
-
             target.TakeDamage(damage, this);
         }
 

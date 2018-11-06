@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4598187692247358}
   - component: {fileID: 114267337872563448}
+  - component: {fileID: 114169140828898634}
   m_Layer: 0
   m_Name: MiddleTile
   m_TagString: Untagged
@@ -155,6 +156,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 126, y: 42, z: 126}
   m_Center: {x: 0, y: 21, z: 0}
+--- !u!114 &114169140828898634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540621558467108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7fd762c1e7d584a9f6e45e6d03d8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaces:
+  - {fileID: 114267337872563448}
 --- !u!114 &114267337872563448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +186,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 50, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -180,6 +194,6 @@ MonoBehaviour:
   m_OverrideTileSize: 1
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.6666667
+  m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: e69a3ee3a05075c46ba78838193ddb00, type: 2}
+  m_NavMeshData: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4607601139290370}
   - component: {fileID: 114400886203627552}
   - component: {fileID: 114569092420090184}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Gunner
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33014458003996622}
   - component: {fileID: 23519752637842216}
   - component: {fileID: 65613829017698296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OctopodeCanon
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 33925108892974100}
   - component: {fileID: 23734600882295710}
   - component: {fileID: 65501393236156316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLeg
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 33205079542815890}
   - component: {fileID: 23343574271168232}
   - component: {fileID: 65798352483424310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLeg
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 33908654686633678}
   - component: {fileID: 23162828475226754}
   - component: {fileID: 65496054659313964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLeg
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4808580183867246}
   - component: {fileID: 198743209995431136}
   - component: {fileID: 199032643840975994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4589623072257262}
   - component: {fileID: 199793896010111966}
   - component: {fileID: 198470863518075790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PS_CannonShoot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4552917838492156}
   - component: {fileID: 198641927983512914}
   - component: {fileID: 199326759259119796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flare_Circle
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4792274365185838}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CannonEnd
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4543551674913844}
   - component: {fileID: 198022261203883346}
   - component: {fileID: 199978368315444762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flares
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4725958881121768}
   - component: {fileID: 198154591633766426}
   - component: {fileID: 199801861469699356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokePS
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4381785917182478}
   - component: {fileID: 198433248968619586}
   - component: {fileID: 199610967292107908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokePS
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103505017362870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLegLeft
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805304537657244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLegRight
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4911980482074700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeLegAR
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4723567695745122}
   - component: {fileID: 33250008779980602}
   - component: {fileID: 23770695799546924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeBody
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587378796740936}
   - component: {fileID: 82884906384095538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OctopodeCanon
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 4378806855656310}
   - component: {fileID: 198659896302757444}
   - component: {fileID: 199903059795938068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokePS
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4374874894178252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctopodeBody
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868833251271822}
   - component: {fileID: 20487916587327978}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GunnerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664469613752372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 19.734144, y: 42, z: 39.791946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -669,7 +669,7 @@ Transform:
   - {fileID: 224694077628718858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4792274365185838
 Transform:
   m_ObjectHideFlags: 1
