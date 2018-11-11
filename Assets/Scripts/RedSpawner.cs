@@ -34,7 +34,7 @@ public class RedSpawner : MonoBehaviour {
     {
         float nextTime = 0f;
 
-        nextTime = Random.value * 10;
+        nextTime = Random.Range(1f, 10f);
 
         return nextTime;
     }

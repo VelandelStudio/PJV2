@@ -8,7 +8,7 @@ public class EnemyAttack : MonoBehaviour {
     private Animator animator;
     private bool canAttack = true;
 
-    public int powerAttack = 5;
+    public int powerAttack;
     public float attackRange = 6f;
     public bool isAttacking = false;
 
@@ -17,6 +17,8 @@ public class EnemyAttack : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         animator = GetComponent<Animator>();
+
+        SetEnemyPower();
     }
 
     private void Update()
@@ -80,5 +82,10 @@ public class EnemyAttack : MonoBehaviour {
         yield return new WaitForSeconds(time);
 
         canAttack = true;
+    }
+
+    private void SetEnemyPower()
+    {
+        powerAttack = GameManagement.instance.Level * 5;
     }
 }

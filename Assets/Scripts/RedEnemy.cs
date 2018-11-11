@@ -12,13 +12,15 @@ public class RedEnemy : MonoBehaviour {
 
     public string type = "red";
 
-    private int hp = 30;
+    private int hp;
     private int scorePoints = 30;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        SetEnemyHp();
     }
 
     public void TakeDamage(int damage, RedBullet bullet)
@@ -52,5 +54,10 @@ public class RedEnemy : MonoBehaviour {
         {
             PS_DogDies[i].Play(true);
         }
+    }
+
+    private void SetEnemyHp()
+    {
+        hp = GameManagement.instance.Level * 10 + 20;
     }
 }

@@ -7,8 +7,8 @@ public class TimerGUI : MonoBehaviour {
 
     public Text timerLabel;
     public Text gameOver;
-    
-    private float time = 121f;
+
+    private float currentTime = 121f;
 
     private void Start()
     {
@@ -17,14 +17,14 @@ public class TimerGUI : MonoBehaviour {
 
     private void Update()
     {
-        time -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
-        if (time >= 0f)
+        if (currentTime >= 0f)
         {
             PrintTime();
         }
  
-        if (time <= 0f)
+        if (currentTime <= 0f)
         {
             DisplayGameOver();
         }
@@ -32,8 +32,8 @@ public class TimerGUI : MonoBehaviour {
 
     private void PrintTime()
     {
-        float minutes = (time / 60) - 0.5f;
-        float seconds = (time % 60) - 0.5f;
+        float minutes = (currentTime / 60) - 0.5f;
+        float seconds = (currentTime % 60) - 0.5f;
 
         timerLabel.text = "Timer " + string.Format("{0:00} : {1:00}", minutes, seconds);
     }
@@ -41,5 +41,10 @@ public class TimerGUI : MonoBehaviour {
     private void DisplayGameOver()
     {
         gameOver.enabled = true;
+    }
+
+    public void ResetTime()
+    {
+        currentTime = 121f;
     }
 }
