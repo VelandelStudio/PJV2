@@ -7,6 +7,8 @@ public class RedEnemy : MonoBehaviour {
 
     private Animator anim;
     private Rigidbody rb;
+    [SerializeField]
+    private List<ParticleSystem> PS_DogDies = new List<ParticleSystem>();
 
     public string type = "red";
 
@@ -45,6 +47,10 @@ public class RedEnemy : MonoBehaviour {
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
+        for(int i = 0; i < PS_DogDies.Count; i++)
+        {
+            PS_DogDies[i].Play(true);
+        }
     }
 }

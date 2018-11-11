@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 114501633854416702}
   - component: {fileID: 114456021865070868}
   - component: {fileID: 95633950007072526}
+  - component: {fileID: 143211901812798026}
   m_Layer: 8
   m_Name: Vehicle
   m_TagString: Player
@@ -1219,7 +1220,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 313a1e153a485e448aa8cae8bc989128, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1364,6 +1365,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!143 &143211901812798026
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664469613752372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.25, z: -1}
 --- !u!198 &198022261203883346
 ParticleSystem:
   m_ObjectHideFlags: 1

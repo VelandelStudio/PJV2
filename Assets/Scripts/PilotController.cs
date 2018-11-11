@@ -4,6 +4,7 @@ public class PilotController : MonoBehaviour
 {
     public float MoveSpeed;
     public float RotationSpeed;
+    private CharacterController controller; 
 
     private Animator anim;
     private bool IsMoving;
@@ -14,6 +15,7 @@ public class PilotController : MonoBehaviour
         MoveSpeed = MoveSpeed == 0f ? 0.25f : MoveSpeed;
         RotationSpeed = RotationSpeed == 0f ? 2f : RotationSpeed;
         anim = GetComponent<Animator>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -64,7 +66,6 @@ public class PilotController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.Z) && !Input.GetKey(KeyCode.S))
         {
-
             movement -= transform.right;
         }
 
@@ -75,7 +76,7 @@ public class PilotController : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
-            transform.position += movement * currentMoveSpeed;
+            controller.Move(movement * currentMoveSpeed);
             IsMoving = true;
         }
 
