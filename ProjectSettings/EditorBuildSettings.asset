@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StathosScene Sandbox.unity
+    guid: caa34ab6756e30d48bc1a03361fdf1e3
+  m_configObjects: {}
