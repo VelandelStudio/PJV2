@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// EnemyAttack class,
+/// Placed on ennemies to make them target and attack the player.
+/// </summary>
 public class EnemyAttack : MonoBehaviour {
 
     private Transform player;
@@ -12,6 +15,10 @@ public class EnemyAttack : MonoBehaviour {
     public float attackRange = 6f;
     public bool isAttacking = false;
 
+    /// <summary>
+    /// On Awake, we locate the Player and load the enemy Animator.
+    /// Then we calculate the power of the ennemies depending on the level.
+    /// </summary>
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -21,6 +28,10 @@ public class EnemyAttack : MonoBehaviour {
         SetEnemyPower();
     }
 
+    /// <summary>
+    /// On Update, we try to catch the Distance between the player and the Ennemy, 
+    /// If the Distance is lwer than the threshold the ennemy attacks.
+    /// </summary>
     private void Update()
     {
         if (player)
@@ -46,6 +57,9 @@ public class EnemyAttack : MonoBehaviour {
         return result;
     }
 
+    /// <summary>
+    /// Simply tries to get the playerHealth script and deal damages to the target.
+    /// </summary>
     private void DealDamage()
     {
         PlayerHealth playerHealth = player.GetComponentInParent<PlayerHealth>();
@@ -56,6 +70,11 @@ public class EnemyAttack : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Launched on Update,
+    /// Synchronise the animator while the ennemy is attacking.
+    /// We also play with a bool called canAttack which acts as a cooldown.
+    /// </summary>
     private void Attacking()
     {
         animator.SetBool("isAttacking", true);
@@ -77,6 +96,11 @@ public class EnemyAttack : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Delay the cooldown of the next attack.
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     IEnumerator AttackDelayed(float time)
     {
         yield return new WaitForSeconds(time);
@@ -84,6 +108,10 @@ public class EnemyAttack : MonoBehaviour {
         canAttack = true;
     }
 
+    /// <summary>
+    /// Used On Awake, 
+    /// Set the power of the ennemy depending on the level.
+    /// </summary>
     private void SetEnemyPower()
     {
         powerAttack = GameManagement.instance.Level * 5;

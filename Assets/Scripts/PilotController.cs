@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// PilotController 
+/// Handling the controller of the Vehicle. 
+/// Is able to move and rotate the Player Vehicle (Left Player). MoveSpeed and RotationSpeed should be set up in the editor directly.
+/// </summary>
 public class PilotController : MonoBehaviour
 {
     public float MoveSpeed;
@@ -10,6 +15,11 @@ public class PilotController : MonoBehaviour
     private bool IsMoving;
     private bool WasMoving;
 
+    /// <summary>
+    /// Start, private void 
+    /// Getting Animator and Controller on the gameObject;
+    /// If MoveSpeed/RotateSpeed are not set up in the editor, 
+    /// </summary>
     private void Start()
     {
         MoveSpeed = MoveSpeed == 0f ? 0.25f : MoveSpeed;
@@ -18,7 +28,6 @@ public class PilotController : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         HandleMovement();

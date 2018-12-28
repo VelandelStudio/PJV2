@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// GunnerShooter is the class used to spill death and destruction. 
+/// Do you smell the sweet taste of roasted dogs and gun powder ?
+/// </summary>
 public class GunnerShooter : MonoBehaviour {
 
     public float CoolDown;
@@ -54,6 +58,12 @@ public class GunnerShooter : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Public Services, called by Ammo' Boxes.
+    /// Increase the number of current Ammo's with an amount.
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns>true if we can collect.</returns>
     public bool CollectAmmo(int amount)
     {
         if(RedAmmo == RedAmmoMax)

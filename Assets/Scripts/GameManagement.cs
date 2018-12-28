@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// GameManagement : Warning, Singleton inside !
+/// This Singleton is used to manage the Score and the level of every games.
+/// </summary>
 public class GameManagement : MonoBehaviour {
 
     public static GameManagement instance = null;
@@ -21,6 +25,9 @@ public class GameManagement : MonoBehaviour {
         get { return level; }
     }
 
+    /// <summary>
+    /// On Awake, we create the Singleton.
+    /// </summary>
     void Awake()
     {
         if (instance == null)
@@ -35,6 +42,9 @@ public class GameManagement : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// On Start we reset every thing and load a new Level.
+    /// </summary>
     private void Start()
     {
         Score = 0;
@@ -43,13 +53,13 @@ public class GameManagement : MonoBehaviour {
         LoadNewLevel();
     }
 
+    /// <summary>
+    /// LoadNewLevel increas the Level of the game and resets the timer.
+    /// </summary>
     public void LoadNewLevel()
     {
         level++;
-
         Debug.Log("Loading Level " + level);
-
-        //Intantiate object for the lvl
 
         if (level > 1)
         {
