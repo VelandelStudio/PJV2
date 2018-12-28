@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// RedEnemy Class
+/// This is the class that manage life and death of the red dog in game.
+/// </summary>
 public class RedEnemy : MonoBehaviour {
 
     private Animator anim;
@@ -14,7 +18,7 @@ public class RedEnemy : MonoBehaviour {
 
     private int hp;
     private int scorePoints = 30;
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,6 +27,12 @@ public class RedEnemy : MonoBehaviour {
         SetEnemyHp();
     }
 
+    /// <summary>
+    /// TakeDamage method.
+    /// Usable when RedEnemy is get by an entity that deals damages.
+    /// </summary>
+    /// <param name="damage">The number of damage you want to Apply</param>
+    /// <param name="bullet">The RedBullet that touch the RedEnemy</param>
     public void TakeDamage(int damage, RedBullet bullet)
     {
         if (bullet.type == type)
@@ -40,6 +50,9 @@ public class RedEnemy : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// BeKilled Method called if TakeDamage method turn life of the enemy to Zero.
+    /// </summary>
     private void BeKilled()
     {
         GameManagement.instance.Score += scorePoints;
@@ -56,6 +69,10 @@ public class RedEnemy : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// SetEnemyHp Method
+    /// Set the life of the enemy depending on the current level
+    /// </summary>
     private void SetEnemyHp()
     {
         hp = GameManagement.instance.Level * 10 + 20;

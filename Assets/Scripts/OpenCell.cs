@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// OpenCell Class
+/// Manage the Behavior of the door in a cell
+/// </summary>
 public class OpenCell : MonoBehaviour {
 
     public int doorHealth = 50;
@@ -13,6 +17,10 @@ public class OpenCell : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
+    /// <summary>
+    /// The door is shootable,
+    /// Update check if the door is "alive" to launch the Door Animation
+    /// </summary>
     private void Update()
     {
         if (doorHealth <= 0)
@@ -23,6 +31,11 @@ public class OpenCell : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// OnTriggerEnter Unity Method
+    /// Usable when DoorCell is get by an entity that deals damages.
+    /// </summary>
+    /// <param name="other">The entity that touch the DoorCell</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<RedBullet>())
