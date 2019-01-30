@@ -1,36 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class BlueEnemy : MonoBehavior{
+public class BlueEnemy : MonoBehaviour
+{
     private Transform player;
-    private RigidBody rigidbody;
+    private RigidBody rb;
+    private BlueKamikaze attack;
 
-    private bool explodes = false;
-
-    private float detectionfield = 5f;
-    private float speed = 2f;
-
-    public String type = 'blue';
+    public string type = 'blue';
     public int health = 20;
-    public int score = 10; 
+    public int score = 10;
 
     private void Awake(){
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        attack = GetComponent<BlueKamikaze>();
         SetEnemyHP();
         SetEnemyScore();
     }
 
     private void Update(){
-        float distance = Vector3.distance(transform.position, player.position);
-        if (distance < detectionfield)
-            if(distance == 0)
-                Kamikaze();
-            else{
-                speed = 3f;
-                //clignotement ?
-            }
+        if(health <= 0)
+        {
+            Die();
+        }
+        if(!attack.launched)
+        {
+
+        }
+    }
+
+    public void OnTriggerEnter(Collider Player)
+    {
+        attack.launched = true;
     }
 
     private void SetEnemyHP(){
@@ -41,23 +45,13 @@ public class BlueEnemy : MonoBehavior{
         score = Score*GameManagement.instance.Level;
     }
 
-    private void Kamikaze(){
-        EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
-        enemyAttack.isAttacking = true;
-        Explosion();
-        Die();
-    }
+
+
 
     private void Die(){
-        health = 0;
         rigidbody.isKinematic = true;
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
-    }
-
-    private void Explosion(){
-        //démarrage animation
-        //détection des autres ennemis dans champ d'action + dégats ???
     }
 }

@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueEnemy : MonoBehavior{
-    private RigidBody rigidbody;
+public class BlueEnemy : MonoBehaviour{
+    private RigidBody rb;
 
 
 
-    private void awake{
+    private void Awake()
+    {
         
     }
 
-    private void Update{
+    private void Update()
+    {
 
     }
 
