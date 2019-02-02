@@ -7,7 +7,7 @@ public class Explosion : MonoBehaviour
     public bool explode = false;
     void Start()
     {
-
+        
     }
 
     void Update()
