@@ -33,9 +33,10 @@ public class RedEnemy : MonoBehaviour {
     /// </summary>
     /// <param name="damage">The number of damage you want to Apply</param>
     /// <param name="bullet">The RedBullet that touch the RedEnemy</param>
-    public void TakeDamage(int damage, RedBullet bullet)
+    ///modification from 'Redbullet type' to string 'otherType', to implement damages through explosion
+    public void TakeDamage(int damage, string otherType)
     {
-        if (bullet.type == type)
+        if (otherType == type || otherType = "explosion")
         {
             hp -= damage;
         }

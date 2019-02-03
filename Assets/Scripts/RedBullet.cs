@@ -33,7 +33,7 @@ public class RedBullet : MonoBehaviour {
         if (other.GetComponent<RedEnemy>())
         {
             RedEnemy target = other.GetComponent<RedEnemy>();
-            target.TakeDamage(damage, this);
+            target.TakeDamage(damage, this.type);
         }
 
         Destroy(gameObject);
@@ -41,7 +41,7 @@ public class RedBullet : MonoBehaviour {
 
     private void ApplyForce()
     {
-        rb.AddForce(transform.forward * force);
+        rb.AddForce(transform.forward * force); 
     }
 
     private void OnHitParticleSystem()
