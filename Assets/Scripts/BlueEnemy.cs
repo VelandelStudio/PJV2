@@ -47,7 +47,7 @@ public class BlueEnemy : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wallah c'est pas les bonnes balles frèr");
+            Debug.Log("Immune");
         }
 
         if (hp <= 0)
