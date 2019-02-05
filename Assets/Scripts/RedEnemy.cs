@@ -36,7 +36,7 @@ public class RedEnemy : MonoBehaviour {
     ///modification from 'Redbullet type' to string 'otherType', to implement damages through explosion
     public void TakeDamage(int damage, string otherType)
     {
-        if (otherType == type || otherType = "explosion")
+        if (otherType == type || otherType == "explosion")
         {
             hp -= damage;
         }
