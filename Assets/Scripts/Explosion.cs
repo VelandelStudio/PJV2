@@ -18,7 +18,7 @@ public class Explosion : MonoBehaviour
 
     void Update()
     {
-        ExplosionEnd();
+        ExplosionEnd(); //don't really know where to put this one ...
     }
 
     public void OnTriggerEnter(Collider other)
