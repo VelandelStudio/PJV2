@@ -45,7 +45,7 @@ public class BlueBullet : MonoBehaviour
         if (other.GetComponent<BlueEnemy>())
         {
             BlueEnemy target = other.GetComponent<BlueEnemy>();
-            target.TakeDamage(damage, this);
+            target.TakeDamage(damage, this.type);
         }
 
         Destroy(gameObject);
