@@ -3,43 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-/// <summary>
-/// EnemyMovement class is used to make ennemies move and catch the player.
-/// </summary>
-public class EnemyMovement : MonoBehaviour {
+
+public class BlueEnemyMovement : MonoBehaviour {
 
     Transform player;
     NavMeshAgent nav;
     EnemyAttack enemyAttack;
+    float distToPlayer;
+    int detectionDist = 30;
+    int explodeDist = 1; // On pourrait récuperer la portée de l'explosion et la mettre en explodeDist
 
-    /// <summary>
-    /// On Awake, we get the ennemy components such as NavMeshAgent and EnnemyAttack.
-    /// We also get an instance of the player.
-    /// </summary>
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
-        enemyAttack = GetComponent<EnemyAttack>();
+        distToPlayer = Vector3.Distance(player.position, transform.position);
+
     }
 
-    /// <summary>
-    /// On Update, first we ceck if the navMeshAgent is not null.
-    /// If the ennemy is not attacking, he moves.
-    /// </summary>
+ 
     private void Update()
     {
-        if (nav)
+        if (distToPlayer < detectionDist)  // If the enemy is close enough to detect player
         {
-            if (enemyAttack.isAttacking)
-            {
-                nav.isStopped = true;
-            }
-            else
-            {
-                MoveToLocation(player.position);
-            }
+            if (distToPlayer > explodeDist) //  If the enemy too far from player to explode
+                nav.destination = player.position;
+            else                            // The enemy is close enough to explode
+                Debug.Log("kaboom");
         }
+        else
+        {
+            nav.destination = RandomNavSphere(transform.position, 20, 10); //layermask = A mask specifying which NavMesh areas are allowed when finding the nearest point.
+        }
+
+
     }
 
     /// <summary>
@@ -50,5 +48,18 @@ public class EnemyMovement : MonoBehaviour {
     {
         nav.destination = targetPoint;
         nav.isStopped = false;
+    }
+
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    {
+        Vector3 randDirection = Random.insideUnitSphere * dist;
+
+        randDirection += origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+
+        return navHit.position;
     }
 }
