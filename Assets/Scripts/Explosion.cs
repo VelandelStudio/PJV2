@@ -5,7 +5,6 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public int powerAttack;
-    private Rigidbody rb;
     private SphereCollider myCollider;
     private float proximity;
 
@@ -13,18 +12,15 @@ public class Explosion : MonoBehaviour
     {
         SetEnemyPower();
         myCollider = GetComponent<SphereCollider>();
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        ExplosionEnd(); //don't really know where to put this one ...
+        ExplosionEnd(); //As the explosion only exist for an instant, end seems to be fitting here 
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        // changes that could be reeeeaaally nice : 
-        //one health script for everyone (player and enemy), one common tag 'ennemy' for all enemies
         if (other.CompareTag("RedEnemy"))
         {
             RedEnemy enemy = other.GetComponentInParent<RedEnemy>();
@@ -53,25 +49,27 @@ public class Explosion : MonoBehaviour
     //push the object away from the center of explosion, with a higher force if object is close to it.
     private void PushBack(Collider other)
     {
-        Rigidbody otherRb = other.GetComponentInParent<Rigidbody>();
-        Transform otherTransform = other.GetComponentInParent<Transform>();
-        otherRb.AddForce(-otherTransform.forward * ProximityOfCenter(other));
+        Rigidbody rb = other.GetComponentInParent<Rigidbody>();
+        rb.AddExplosionForce(powerAttack, transform.position, myCollider.radius, 2.0f);
     }
 
     //closer the object is from the center, higher the impact of explosion will be.
     private int ProximityOfCenter(Collider other)
     {
-        //if the object is really close to the center of explosion, proximity will be higher
-        Transform otherPos = other.GetComponentInParent<Transform>();
+        Transform otherPos = other.transform;
         float distance = Vector3.Distance(transform.position, otherPos.position);
 
+        //depending whether the object is in the circle, distance can be negative or positive.
+        //to correctly measure the proximity, we need to take this in account
+        //example: for radius = 5, and distance from the center -4, 
+        //the proximity is 1/5 = (5 +(-4))/5 = 0,2 ( and not 9/5 (5-(-4))/5 )
         if (distance < 0)
         {
-            proximity = myCollider.radius + distance;
+            proximity = (myCollider.radius + distance)/myCollider.radius;
         }
         else
         {
-            proximity = myCollider.radius - distance;
+            proximity = (myCollider.radius - distance)/myCollider.radius;
         }
         if (proximity <= 0)
         {
@@ -82,8 +80,6 @@ public class Explosion : MonoBehaviour
 
     private void ExplosionEnd()
     {
-        rb.isKinematic = true;
-
         Destroy(GetComponent<Collider>());
         Destroy(gameObject, 5f);
     }
