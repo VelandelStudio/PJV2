@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// RedBoostBox Class
+/// To collect Amonition
+/// </summary>
 public class RedBoostBox : MonoBehaviour {
 
 	[SerializeField] private int AmmoMinAmount;
@@ -14,6 +18,11 @@ public class RedBoostBox : MonoBehaviour {
 		AmmoValue = Random.Range(AmmoMinAmount, AmmoMaxAmount+1);
 	}
 
+    /// <summary>
+    /// OnTriggerEnter Unity CallBack
+    /// Give Amo when the player pass throught the box
+    /// </summary>
+    /// <param name="other"></param>
 	private void OnTriggerEnter(Collider other)
 	{
         Debug.Log(other.tag);
