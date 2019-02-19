@@ -202,7 +202,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570859861
 GameObject:
@@ -5067,7 +5067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f3ee55855f4f8d04c9032dd4d3f0eb50, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f3ee55855f4f8d04c9032dd4d3f0eb50, type: 3}
       propertyPath: m_LocalScale.x
@@ -10458,3 +10458,77 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
   m_Emitting: 1
+--- !u!1001 &50394693971459085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 50394694352080324, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_Name
+      value: BlueEnemyFrustum_PS
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -111.355995
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 47.135353
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -103.23358
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694352165874, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50394694332742192, guid: 628d2e76e9108064898713941ef841aa,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 7.260633
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 628d2e76e9108064898713941ef841aa, type: 3}
