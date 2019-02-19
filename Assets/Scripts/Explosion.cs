@@ -16,26 +16,26 @@ public class Explosion : MonoBehaviour
 
     void Update()
     {
-        ExplosionEnd(); //As the explosion only exist for an instant, end seems to be fitting here 
+        //ExplosionEnd(); //As the explosion only exist for an instant, end seems to be fitting here 
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("RedEnemy"))
         {
-            RedEnemy enemy = other.GetComponentInParent<RedEnemy>();
-            enemy.TakeDamage(powerAttack * ProximityOfCenter(other), "explosion");
+            RedEnemy enemy = other.GetComponent<RedEnemy>();
+            enemy.TakeDamage(DamageQuantity(other), "explosion");
 
         }
         else if (other.CompareTag("BlueEnemy"))
         {
-            BlueEnemy enemy = other.GetComponentInParent<BlueEnemy>();
-            enemy.TakeDamage(powerAttack * ProximityOfCenter(other), "explosion");
+            BlueEnemy enemy = other.GetComponent<BlueEnemy>();
+            enemy.TakeDamage(DamageQuantity(other), "explosion");
         }
         else if (other.CompareTag("Player"))
         {
             PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
-            player.TakeDamage(powerAttack * ProximityOfCenter(other));
+            player.TakeDamage(DamageQuantity(other));
         }
 
         PushBack(other);
@@ -49,12 +49,17 @@ public class Explosion : MonoBehaviour
     //push the object away from the center of explosion, with a higher force if object is close to it.
     private void PushBack(Collider other)
     {
-        Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-        rb.AddExplosionForce(powerAttack, transform.position, myCollider.radius, 2.0f);
+        Rigidbody rb1 = other.GetComponentInParent<Rigidbody>();
+        rb1.AddExplosionForce(powerAttack, transform.position, myCollider.radius);
     }
 
     //closer the object is from the center, higher the impact of explosion will be.
-    private int ProximityOfCenter(Collider other)
+    private int DamageQuantity(Collider other)
+    {
+        return (int)(powerAttack * ProximityOfCenter(other));
+    }
+    
+    private float ProximityOfCenter(Collider other)
     {
         Transform otherPos = other.transform;
         float distance = Vector3.Distance(transform.position, otherPos.position);
@@ -75,7 +80,7 @@ public class Explosion : MonoBehaviour
         {
             proximity = 0;
         }
-        return (int)proximity;
+        return proximity;
     }
 
     private void ExplosionEnd()
