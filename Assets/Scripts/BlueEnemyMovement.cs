@@ -7,14 +7,14 @@ using BezierSolution;
 /// <summary>
 /// EnemyDefaultLocation class is used to determine whether enemies will attack the player, keep moving with a default pattern or move to a default location positioned on a circle surrounding the spawn point
 /// </summary>
-public class EnemyDefaultLocation : MonoBehaviour
+public class BlueEnemyMovement : MonoBehaviour
 {
     Transform player;
     NavMeshAgent nav;
     public float radius = 10f;
     Vector3 randomPointOnCircle;
     float distToPlayer;
-    int detectionDist = 10;
+    int detectionDist = 5;
     int explodeDist = 0; // On pourrait récuperer la portée de l'explosion et la mettre en explodeDist
     private BlueEnemy enemy;
     private BezierWalkerWithSpeed move;
@@ -32,10 +32,9 @@ public class EnemyDefaultLocation : MonoBehaviour
         enemy = GetComponent<BlueEnemy>();
         nav = GetComponent<NavMeshAgent>();
         distToPlayer = Vector3.Distance(player.position, transform.position);
-        randomPointOnCircle = RandomOnUnitSphere();
         //for pattern
         move = GetComponent<BezierWalkerWithSpeed>();
-        move.enabled = false;
+        move.enabled = true;
     }
 
     /// <summary>
@@ -45,17 +44,17 @@ public class EnemyDefaultLocation : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        randomPointOnCircle = RandomOnUnitSphere();
         if (distToPlayer <= detectionDist) 
         {
-            move.enabled = false;
-            Object.Destroy(obj: pattern);
+            if(!notOnTrack)
+            {
+                move.enabled = false;
+                Object.Destroy(obj: pattern);
+            }
             
             if (distToPlayer > explodeDist) //  If the enemy too far from player to explode
             {
-                if(!notOnTrack)
-                {
-
-                }  
                 nav.destination = player.position;
             }
             else

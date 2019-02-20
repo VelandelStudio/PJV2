@@ -44,9 +44,7 @@ public class BlueSpawner : MonoBehaviour
     /// </summary>
     private void SpawnMob()
     {
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-
-        Instantiate(blueEnemy, spawnPoints[spawnPointIndex].position, Quaternion.identity);
+        Instantiate(blueEnemy, transform.position, Quaternion.identity);
     }
 
     /// <summary>
