@@ -36,6 +36,8 @@ public class Explosion : MonoBehaviour
         {
             PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
             player.TakeDamage(DamageQuantity(other));
+            CharacterController controller = other.GetComponentInParent<CharacterController>();
+            controller.enabled = false;
         }
 
         PushBack(other);
@@ -50,7 +52,7 @@ public class Explosion : MonoBehaviour
     private void PushBack(Collider other)
     {
         Rigidbody rb1 = other.GetComponentInParent<Rigidbody>();
-        rb1.AddExplosionForce(powerAttack, transform.position, myCollider.radius);
+        rb1.AddExplosionForce(powerAttack*1000, transform.position, myCollider.radius);
     }
 
     //closer the object is from the center, higher the impact of explosion will be.

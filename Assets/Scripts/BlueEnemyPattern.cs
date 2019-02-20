@@ -1,50 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BezierSolution;
 
 
 public class BlueEnemyPattern : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private Transform EnemyPos;
-    private Vector3 coordA;
-    private Vector3 coordB;
-    public float period = 2*Mathf.PI;
-    private float distance = 0f;
-    private bool forward = true;
+    public static BezierSpline create(Vector3 initPos)
+    {
+        BezierSpline pattern = new GameObject().AddComponent<BezierSpline>();
+        pattern.loop = true;
 
+        pattern.Initialize( 2 );
+        pattern[0].position = initPos;
+        pattern[0].precedingControlPointLocalPosition = new Vector3( 0, 0, 17 );
+        pattern[0].precedingControlPointLocalPosition = new Vector3( 0, 0, -17 );
+
+        pattern[1].localPosition = new Vector3(30,0,30);
+        pattern[1].precedingControlPointLocalPosition = new Vector3( 0, 0, 17 );
+        pattern[1].precedingControlPointLocalPosition = new Vector3( 0, 0, -17 );
+
+        return pattern;
+    }
     void Start()
     {
-        EnemyPos = GetComponent<Transform>();
-        coordA = EnemyPos.position;
-        //movement will depend only on the X axis
-        coordB = new Vector3(coordA.x+period, coordA.y, coordA.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 actualPos = transform.position;
-        distance += Time.deltaTime;
-        if(distance>=period)
-        {
-            if(forward)
-            {
-                forward = false;
-            }
-            else
-            {
-                forward = true;
-            }
-            distance = 0f;
-        }
-        if(forward)
-        {
-            transform.position = new Vector3(actualPos.x + 2*Time.deltaTime, actualPos.y, 2*Mathf.Sin(actualPos.x + 2*Time.deltaTime));
-        }
-        else
-        {
-             transform.position = new Vector3(actualPos.x - 2*Time.deltaTime, actualPos.y, -2*Mathf.Sin(actualPos.x - 2*Time.deltaTime));
-        }
     }
 }

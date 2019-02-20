@@ -19,7 +19,7 @@ public class BlueEnemy : MonoBehaviour {
         hp = GameManagement.instance.Level * 5 + 10;
     }
 
-    private void BeKilled()
+    public void BeKilled()
     {
         GameManagement.instance.Score += scorePoints;
 
@@ -53,7 +53,7 @@ public class BlueEnemy : MonoBehaviour {
         if (hp <= 0)
         {
             //Not sure about how the instantiate function works. 
-            Explosion clone = (Explosion)Instantiate(boom, transform.position, transform.rotation);
+            Instantiate(boom, transform.position, transform.rotation);
             BeKilled();
         }
     }
