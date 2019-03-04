@@ -42,10 +42,6 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Move the enemy to the target location.
-    /// </summary>
-    /// <param name="targetPoint"></param>
     public void MoveToLocation(Vector3 targetPoint)
     {
         nav.destination = targetPoint;
