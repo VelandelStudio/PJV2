@@ -25,24 +25,35 @@ public class BlueBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(message: nav.isStopped);
-        float dist = CalculDistance();
-        if(nav.isStopped && isNotOnTrack)
+        if (nav)
         {
             Debug.Log(message: nav.isStopped);
-            Vector3 pos = transform.position;
-            nav.destination = new Vector3(pos.x+10f, pos.y, pos.z+10f);
-            isNotOnTrack = false;
-            nav.isStopped = false;
+            if(DistanceFromStart())
+            {
+                Vector3 pos = transform.position;
+                nav.destination = new Vector3(pos.x+10f, pos.y, pos.z+10f);
+                nav.isStopped = false;
+            }
         }
 
-        if(dist<=1)
+        float distJoueur = CalculDistance(player.position, transform.position);
+        if(distJoueur <= 1)
         {
             Explodes();
         }
     }
 
-     public void OnTriggerEnter(Collider other)
+    private bool DistanceFromStart()
+    {
+        float distStart = CalculDistance(startPoint, transform.position);
+        if(distStart == 0 )
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
@@ -65,9 +76,9 @@ public class BlueBehaviour : MonoBehaviour
         return randomPointOnCircle;
     }
 
-    private float CalculDistance()
+    private float CalculDistance(Vector3 a, Vector3 b)
     {
-        float result = Vector3.Distance(player.position, transform.position);
+        float result = Vector3.Distance(a, b);
 
         return result;
     }

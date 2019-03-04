@@ -24,7 +24,7 @@ public class BlueEnemy : MonoBehaviour {
         spawner.nbEnemies --;
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
-        Destroy(gameObject, 5f); // 5f ?
+        Destroy(gameObject, 5f);
 
     }
 
