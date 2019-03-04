@@ -15,6 +15,7 @@ public class CharacterControllerLocker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if bugs with isGrounded
         if(isInAir && controller.isGrounded)
         {
             isInAir = false;

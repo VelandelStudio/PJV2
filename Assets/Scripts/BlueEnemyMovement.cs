@@ -11,15 +11,18 @@ public class BlueEnemyMovement : MonoBehaviour
 {
     Transform player;
     NavMeshAgent nav;
-    public float radius = 10f;
-    Vector3 randomPointOnCircle;
-    float distToPlayer;
-    int detectionDist = 5;
-    int explodeDist = 0; // On pourrait récuperer la portée de l'explosion et la mettre en explodeDist
     private BlueEnemy enemy;
-    private BezierWalkerWithSpeed move;
-    private BezierSpline pattern;
-    private bool notOnTrack = true;
+
+    private float radius = 10f;
+    Vector3 randomPointOnCircle;
+
+    bool isOnTrack = false;
+    float distToPlayer;
+    int detectionDist = 10;
+    int explodeDist = 0; // On pourrait récuperer la portée de l'explosion et la mettre en explodeDist
+
+    /*private BezierWalkerWithSpeed move;
+    private BezierSpline pattern;*/
     public Explosion boom;
 
     /// <summary>
@@ -33,8 +36,8 @@ public class BlueEnemyMovement : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         distToPlayer = Vector3.Distance(player.position, transform.position);
         //for pattern
-        move = GetComponent<BezierWalkerWithSpeed>();
-        move.enabled = true;
+        /*move = GetComponent<BezierWalkerWithSpeed>();
+        move.enabled = false;*/
     }
 
     /// <summary>
@@ -47,12 +50,14 @@ public class BlueEnemyMovement : MonoBehaviour
         randomPointOnCircle = RandomOnUnitSphere();
         if (distToPlayer <= detectionDist) 
         {
-            if(!notOnTrack)
+            /*if(!isNotOnTrack)
             {
+                //pour éviter la surcharge d'objet bézier Spline
                 move.enabled = false;
                 Object.Destroy(obj: pattern);
-            }
-            
+                nav.enabled = true;
+            }*/
+        
             if (distToPlayer > explodeDist) //  If the enemy too far from player to explode
             {
                 nav.destination = player.position;
@@ -62,22 +67,27 @@ public class BlueEnemyMovement : MonoBehaviour
                 Instantiate(boom, transform.position, transform.rotation);
                 enemy.BeKilled();
             }
-        }
+        }else{
+            if (isNotOnTrack(transform.position, randomPointOnCircle) && !isOnTrack)
+            {
+                MoveToLocation(randomPointOnCircle);
+            } 
+            else 
+            {
+                isOnTrack = true;
+                Vector3 start = transform.position;
+                Vector3 finish = new Vector3 (start.x+5, start.y, start.z + 5);
+                MoveToLocation(finish);
 
-        else if (Vector3.Distance(randomPointOnCircle, transform.position) <= 0f && notOnTrack)     
-        {
-            notOnTrack = false;
+                /*nav.enabled = false;
+                isNotOnTrack = false;
             //we suppose that the game object blueEnemy has already
             // a component BezierWalker but empty and disabled
             //we add a pattern that we create and we enable the movement.
-            pattern = BlueEnemyPattern.create(transform.position);
-            move.spline = pattern;
-            move.enabled = true;
-        }
-
-        else if (notOnTrack)
-        {
-            MoveToLocation(randomPointOnCircle);
+                pattern = BlueEnemyPattern.create(transform.position);
+                move.spline = pattern;
+                move.enabled = true;*/
+            }
         }
     }
 
@@ -89,7 +99,11 @@ public class BlueEnemyMovement : MonoBehaviour
     public void MoveToLocation(Vector3 targetPoint)
     {
         nav.destination = targetPoint;
-        nav.isStopped = false;
+    }
+
+    public bool isNotOnTrack(Vector3 position, Vector3 start)
+    {
+        return (Vector3.Distance(position, start)>0);
     }
 
     /// <summary>
@@ -98,7 +112,8 @@ public class BlueEnemyMovement : MonoBehaviour
     /// <returns>A random point on the circle surrounding the spawn point</returns>
     private Vector3 RandomOnUnitSphere()
     {
-        Vector3 randomPointOnCircle = Random.insideUnitSphere;
+        Random.InitState(System.DateTime.Now.Millisecond);
+        Vector3 randomPointOnCircle = new Vector3(Random.insideUnitCircle.x , transform.position.y, Random.insideUnitCircle.y);
         randomPointOnCircle.Normalize();
         randomPointOnCircle *= radius;
         return randomPointOnCircle;

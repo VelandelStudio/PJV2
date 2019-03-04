@@ -27,12 +27,12 @@ public class Explosion : MonoBehaviour
             enemy.TakeDamage(DamageQuantity(other), "explosion");
 
         }
-        else if (other.CompareTag("BlueEnemy"))
+        if (other.CompareTag("BlueEnemy"))
         {
             BlueEnemy enemy = other.GetComponent<BlueEnemy>();
             enemy.TakeDamage(DamageQuantity(other), "explosion");
         }
-        else if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
             player.TakeDamage(DamageQuantity(other));
@@ -41,6 +41,7 @@ public class Explosion : MonoBehaviour
         }
 
         PushBack(other);
+        ExplosionEnd();
     }
 
     private void SetEnemyPower()
@@ -52,7 +53,7 @@ public class Explosion : MonoBehaviour
     private void PushBack(Collider other)
     {
         Rigidbody rb1 = other.GetComponentInParent<Rigidbody>();
-        rb1.AddExplosionForce(powerAttack*1000, transform.position, myCollider.radius);
+        rb1.AddExplosionForce(powerAttack*10, transform.position, myCollider.radius);
     }
 
     //closer the object is from the center, higher the impact of explosion will be.
