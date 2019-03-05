@@ -23,13 +23,13 @@ public class Explosion : MonoBehaviour
     {
         if (other.CompareTag("RedEnemy"))
         {
-            RedEnemy enemy = other.GetComponent<RedEnemy>();
+            RedEnemy enemy = other.GetComponentInParent<RedEnemy>();
             enemy.TakeDamage(DamageQuantity(other), "explosion");
 
         }
         if (other.CompareTag("BlueEnemy"))
         {
-            BlueEnemy enemy = other.GetComponent<BlueEnemy>();
+            BlueEnemy enemy = other.GetComponentInParent<BlueEnemy>();
             enemy.TakeDamage(DamageQuantity(other), "explosion");
         }
         if (other.CompareTag("Player"))

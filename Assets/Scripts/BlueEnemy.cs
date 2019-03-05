@@ -12,15 +12,19 @@ public class BlueEnemy : MonoBehaviour {
     private int hp;
     private int scorePoints = 50;
     private BlueSpawner spawner;
+    private Rigidbody rb;
 
 
     private void SetEnemyHp()
     {
+
         hp = GameManagement.instance.Level * 5 + 10;
     }
 
     public void BeKilled()
     {
+        rb.isKinematic = true;
+
         spawner.nbEnemies --;
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
@@ -30,6 +34,7 @@ public class BlueEnemy : MonoBehaviour {
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         spawner = GameObject.FindObjectOfType<BlueSpawner>();
 
         SetEnemyHp();

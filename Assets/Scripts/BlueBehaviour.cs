@@ -9,17 +9,23 @@ public class BlueBehaviour : MonoBehaviour
     private NavMeshAgent nav;
     private Transform player;
     public Explosion boom;
-    public int radius = 5;
-    private bool isNotOnTrack = true;
-
+    public int radius;
     private Vector3 startPoint;
+
+    private Transform destinationPoint;
+    public bool HasArrived = false;
+
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = GetComponent<BlueEnemy>();
+        destinationPoint = transform.GetChild(0);
+        transform.root.DetachChildren();
+
         startPoint = RandomPointOnSphere();
-        nav.destination = startPoint;
+        nav.SetDestination(startPoint);
+        destinationPoint.position = startPoint;
     }
 
     // Update is called once per frame
@@ -27,30 +33,22 @@ public class BlueBehaviour : MonoBehaviour
     {
         if (nav)
         {
-            Debug.Log(message: nav.isStopped);
-            if(DistanceFromStart())
+            //Debug.Log(message: nav.isStopped);
+            if(HasArrived)
+
             {
-                Vector3 pos = transform.position;
+                Debug.Log("Je suis arrivée");
+                /*Vector3 pos = transform.position;
                 nav.destination = new Vector3(pos.x+10f, pos.y, pos.z+10f);
-                nav.isStopped = false;
+                nav.isStopped = false;*/
             }
         }
 
-        float distJoueur = CalculDistance(player.position, transform.position);
+        float distJoueur = Vector3.Distance(player.position, transform.position);
         if(distJoueur <= 1)
         {
             Explodes();
         }
-    }
-
-    private bool DistanceFromStart()
-    {
-        float distStart = CalculDistance(startPoint, transform.position);
-        if(distStart == 0 )
-        {
-            return false;
-        }
-        return true;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -69,17 +67,8 @@ public class BlueBehaviour : MonoBehaviour
     }
     private Vector3 RandomPointOnSphere()
     {
-        Vector3 randomPointOnCircle = Random.insideUnitSphere;
-        randomPointOnCircle.Normalize();
-        randomPointOnCircle *= radius;
-        randomPointOnCircle += transform.position;
+        Vector2 randomPoint = Random.insideUnitCircle * radius;
+        Vector3 randomPointOnCircle = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
         return randomPointOnCircle;
-    }
-
-    private float CalculDistance(Vector3 a, Vector3 b)
-    {
-        float result = Vector3.Distance(a, b);
-
-        return result;
     }
 }
