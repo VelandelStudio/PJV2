@@ -21,7 +21,7 @@ public class LoaderLVL : MonoBehaviour {
     /// <summary>
     /// Swap the scene when loading is finished
     /// </summary>
-    /// <returns></returns>
+    /// <returns>null</returns>
     IEnumerator LoadYourAsyncScene()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("StathosScene Sandbox");
