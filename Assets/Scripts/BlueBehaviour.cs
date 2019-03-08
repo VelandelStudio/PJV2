@@ -12,7 +12,7 @@ public class BlueBehaviour : MonoBehaviour
     public int radius;
     private Vector3 startPoint;
 
-    private Transform destinationPoint;
+    [SerializeField] private Transform destinationPoint;
     public bool HasArrived = false;
 
     void Start()
@@ -20,9 +20,7 @@ public class BlueBehaviour : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = GetComponent<BlueEnemy>();
-        destinationPoint = transform.GetChild(0);
-        transform.root.DetachChildren();
-
+        destinationPoint.SetParent(null);
         startPoint = RandomPointOnSphere();
         nav.SetDestination(startPoint);
         destinationPoint.position = startPoint;

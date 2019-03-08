@@ -10,7 +10,7 @@ using UnityEngine;
 public class BlueSpawner : MonoBehaviour
 {
 
-    public BlueEnemy blueEnemy;
+    public GameObject blueEnemy;
 
     private float timeToNextSpawn;
 
