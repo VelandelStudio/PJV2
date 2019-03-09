@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
 {
-    private Rigidbody rb;
-    private int HpEntity;
-    private E_Type TypeEntity;
+    public int HpEntity;
+    protected E_Type TypeEntity;
+    protected Animator anim;
+    protected Rigidbody rb;
 
 
     public int HP
@@ -36,7 +37,7 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
         }
     }
 
-    public void SetHP(int HP)
+    public void SetHP()
     {
         HP = GameManagement.instance.Level * 5 + 10;
     }
