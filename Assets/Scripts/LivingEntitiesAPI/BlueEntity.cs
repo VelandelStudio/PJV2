@@ -17,7 +17,7 @@ public class BlueEntity : LivingEntitiesMPL
 
     public override void PreDie()
     {
-        GameManagement.instance.Score += scorePoints;
+        //GameManagement.instance.Score += scorePoints;
         //Instantiate(boom, transform.position, transform.rotation);
         spawner.nbEnemies--;
     }

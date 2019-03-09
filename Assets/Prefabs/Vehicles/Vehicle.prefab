@@ -14518,7 +14518,6 @@ GameObject:
   - component: {fileID: 114456021865070868}
   - component: {fileID: 95633950007072526}
   - component: {fileID: 143211901812798026}
-  - component: {fileID: 1473311261}
   m_Layer: 8
   m_Name: Vehicle
   m_TagString: Player
@@ -14558,7 +14557,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &114501633854416702
 MonoBehaviour:
@@ -14623,18 +14622,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2.25, z: -1}
---- !u!114 &1473311261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664469613752372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46503da1d0163cf4090824e748adcd92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1675776228805242
 GameObject:
   m_ObjectHideFlags: 0

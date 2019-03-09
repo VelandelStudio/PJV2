@@ -14,15 +14,11 @@ public class RedEntity : LivingEntitiesMPL
 
     public override void PostDie()
     {
-        for (int i = 0; i < PS_DogDies.Count; i++)
-        {
-            PS_DogDies[i].Play(true);
-        }
+       
     }
 
     public override void PreDie()
     {
-        GameManagement.instance.Score += scorePoints;
-        anim.SetTrigger("isDead");
+      
     }
 }

@@ -71,4 +71,9 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
 
     public abstract void PreDie();
     public abstract void PostDie();
+
+    public void SetHP(int HP)
+    {
+        throw new System.NotImplementedException();
+    }
 }
