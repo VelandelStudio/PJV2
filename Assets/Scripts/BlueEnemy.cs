@@ -24,12 +24,10 @@ public class BlueEnemy : MonoBehaviour {
     public void BeKilled()
     {
         rb.isKinematic = true;
-
         spawner.nbEnemies --;
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
         Destroy(gameObject, 5f);
-
     }
 
     private void Awake()

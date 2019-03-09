@@ -27612,6 +27612,7 @@ GameObject:
   - component: {fileID: 3180802607937987109}
   - component: {fileID: 6695153480597336535}
   - component: {fileID: 1781721912462786093}
+  - component: {fileID: 686296359}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -27678,6 +27679,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &686296359
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217785291454874710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 4735e63603f3cb543a132e59e6438917, type: 3}
 --- !u!1 &4342026810925667608
 GameObject:
   m_ObjectHideFlags: 0
@@ -74037,7 +74052,7 @@ GameObject:
   - component: {fileID: 3010357090636900382}
   - component: {fileID: 2601833357484043414}
   - component: {fileID: 5269605880867404044}
-  - component: {fileID: 6916003409854354393}
+  - component: {fileID: 3998298495603029167}
   m_Layer: 0
   m_Name: BlueEnemy
   m_TagString: BlueEnemy
@@ -74154,20 +74169,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!64 &6916003409854354393
-MeshCollider:
+--- !u!114 &3998298495603029167
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8510602898480569677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 4735e63603f3cb543a132e59e6438917, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314caec5922fa1c409795fdfd539d9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8987664152251316869
 GameObject:
   m_ObjectHideFlags: 0
