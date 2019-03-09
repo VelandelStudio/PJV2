@@ -13785,7 +13785,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1228423119095939337}
-  - component: {fileID: 1228423119090147747}
   - component: {fileID: 1228423119081733207}
   - component: {fileID: 1228423119081776819}
   m_Layer: 0
@@ -13813,22 +13812,6 @@ Transform:
   m_Father: {fileID: 4215203283377134291}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1228423119090147747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228423119095671317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5409884f1be25ed40ae92c007cba8ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImmediateDestroyList: []
-  AwaitDestroyList: []
-  AwaitDestroyTime: 5
-  StartOnAwake: 1
 --- !u!199 &1228423119081733207
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -83684,7 +83667,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -93049,92 +93032,92 @@ PrefabInstance:
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.x
-      value: 0.25
+      value: 32.28994
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.z
-      value: 1.03
+      value: 29.401428
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.x
-      value: -12.012645
+      value: 20.027294
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.z
-      value: 0.92235595
+      value: 29.293783
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.x
-      value: 12.512645
+      value: 44.552586
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 1339691494076628449, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.z
-      value: 1.137644
+      value: 29.509071
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.x
-      value: -0.15
+      value: 31.88994
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_position.z
-      value: 26.65
+      value: 55.021427
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.x
-      value: -12.70548
+      value: 19.334461
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_precedingControlPointPosition.z
-      value: 26.709158
+      value: 55.080585
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.x
-      value: 12.405479
+      value: 44.44542
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.y
-      value: 1.16
+      value: 43.16
       objectReference: {fileID: 0}
     - target: {fileID: 5894131578820573378, guid: 35c756b35796142468ec5beb20a5af07,
         type: 3}
       propertyPath: m_followingControlPointPosition.z
-      value: 26.590843
+      value: 54.962273
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c756b35796142468ec5beb20a5af07, type: 3}

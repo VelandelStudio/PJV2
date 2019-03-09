@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Explosion : MonoBehaviour
 {
@@ -10,13 +11,7 @@ public class Explosion : MonoBehaviour
 
     void Start()
     {
-        SetEnemyPower();
         myCollider = GetComponent<SphereCollider>();
-    }
-
-    void Update()
-    {
-        //ExplosionEnd(); //As the explosion only exist for an instant, end seems to be fitting here 
     }
 
     public void OnTriggerEnter(Collider other)
@@ -36,24 +31,31 @@ public class Explosion : MonoBehaviour
         {
             PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
             player.TakeDamage(DamageQuantity(other));
-            CharacterController controller = other.GetComponentInParent<CharacterController>();
-            controller.enabled = false;
         }
 
         PushBack(other);
         ExplosionEnd();
     }
 
-    private void SetEnemyPower()
-    {
-        powerAttack = GameManagement.instance.Level * 5;
-    }
-
     //push the object away from the center of explosion, with a higher force if object is close to it.
     private void PushBack(Collider other)
     {
+        CharacterController controller = other.transform.root.GetComponent<CharacterController>();
+        if (controller)
+        { 
+            controller.enabled = false;
+            StartCoroutine(EndPushBack(controller));
+        }
+
         Rigidbody rb1 = other.GetComponentInParent<Rigidbody>();
-        rb1.AddExplosionForce(powerAttack*10, transform.position, myCollider.radius);
+        Debug.Log(powerAttack);
+        rb1.AddForce(transform.forward * powerAttack, ForceMode.Impulse);
+    }
+
+    private IEnumerator EndPushBack(CharacterController comp)
+    {
+        yield return new WaitForSeconds(0.5f);
+        comp.enabled = true;
     }
 
     //closer the object is from the center, higher the impact of explosion will be.
