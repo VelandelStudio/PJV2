@@ -7,6 +7,7 @@ public class BlueEntity : LivingEntitiesMPL
     private BlueSpawner spawner;
     void Awake()
     {
+        enemy = GetComponent<EnemyImpl>();
         rb = GetComponent<Rigidbody>();
         //NB of HP of BlueEnemy
         HP = 5;
@@ -21,7 +22,7 @@ public class BlueEntity : LivingEntitiesMPL
 
     public override void PreDie()
     {
-        //GameManagement.instance.Score += scorePoints;
+        GameManagement.instance.Score += enemy.ScoreValue;
         //Instantiate(boom, transform.position, transform.rotation);
         spawner.nbEnemies--;
     }

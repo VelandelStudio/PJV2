@@ -9,6 +9,7 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
     protected E_Type TypeEntity;
     protected Animator anim;
     protected Rigidbody rb;
+    protected EnemyImpl enemy;
 
     public int HP { get; protected set; }
 
@@ -48,9 +49,4 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
 
     public abstract void PreDie();
     public abstract void PostDie();
-
-    public void SetHP(int HP)
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -8,6 +8,7 @@ public class RedEntity : LivingEntitiesMPL
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        enemy = GetComponent<EnemyImpl>();
         HP = 10;
         SetHP(10);
         Type = E_Type.red;
@@ -21,7 +22,7 @@ public class RedEntity : LivingEntitiesMPL
     public override void PreDie()
     {
         //needs IEnemies for ScorePoints
-        GameManagement.instance.Score += scorePoints;
+        GameManagement.instance.Score += enemy.ScoreValue;
         anim.SetTrigger("isDead");
     }
 }

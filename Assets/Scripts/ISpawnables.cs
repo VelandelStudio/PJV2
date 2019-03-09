@@ -5,6 +5,6 @@ using UnityEngine;
 public interface ISpawnables
 {
     int maxSpawn { get; }
-    int calculTimeToNextSpawn { get; }
+    float calculTimeToNextSpawn { get; }
     void spawnMob();
 }
