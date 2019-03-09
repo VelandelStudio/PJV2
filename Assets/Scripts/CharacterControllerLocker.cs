@@ -6,6 +6,7 @@ public class CharacterControllerLocker : MonoBehaviour
 {
     private bool isInAir = false;
     private CharacterController controller;
+    private IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,19 @@ public class CharacterControllerLocker : MonoBehaviour
     {
         controller.enabled = false;
         isInAir = true;
+        coroutine = WaitAndFly();
+        StartCoroutine(coroutine);
     }
+
+    public IEnumerator WaitAndFly()
+    {
+        yield return new WaitForSeconds(0.2f);
+        while (isInAir) {
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+
+
+
 }
