@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using BezierSolution;
-
 public class BlueBehaviour : MonoBehaviour
 {
     private BlueEnemy enemy;
@@ -13,6 +12,10 @@ public class BlueBehaviour : MonoBehaviour
 
     [SerializeField] private Transform destinationPoint;
     [SerializeField] private BezierSpline bezierSpline;
+
+    [SerializeField] private GameObject PS_EnemyLoadExplosion;
+    [SerializeField] private GameObject PS_EnemyExplosion;
+
     private BezierWalkerWithSpeed bezierWalker;
 
     public bool HasArrived = false;
@@ -82,11 +85,6 @@ public class BlueBehaviour : MonoBehaviour
             i++;
             randomPointOnCircle = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
         }
-
-        /*if(i >= 20)
-        {
-            Destroy(gameObject);
-        }*/
 
         return randomPointOnCircle;
     }
