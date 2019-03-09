@@ -34,7 +34,7 @@ public class RedBullet : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.GetComponent<RedBullet>() || other.CompareTag("Player"))
+        if(other.GetComponent<RedBullet>() || other.CompareTag("Player") || other.isTrigger)
         {
             return;
         }

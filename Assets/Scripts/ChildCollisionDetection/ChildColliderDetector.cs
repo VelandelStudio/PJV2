@@ -13,11 +13,11 @@ public class ChildColliderDetector : MonoBehaviour
         enabled = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!other.isTrigger)
+        if (!collision.collider.isTrigger)
         {
-            childCollisionDetection.OnChildrenDetectedCollisionEnter(other);
+            childCollisionDetection.OnChildrenDetectedCollisionEnter(collision);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IChildCollisionDetection {
 
-    void OnChildrenDetectedCollisionEnter(Collider other);
+    void OnChildrenDetectedCollisionEnter(Collision collision);
     void OnChildrenDetectedCollisionStay(Collider other);
     void OnChildrenDetectedCollisionExit(Collider other);
 }
