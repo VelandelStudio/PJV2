@@ -10,15 +10,18 @@ using UnityEngine;
 public class BlueSpawner : MonoBehaviour
 {
 
-    public BlueEnemy blueEnemy;
+    public GameObject blueEnemy;
 
     private float timeToNextSpawn;
 
-    private Transform[] spawnPoints;         
+    private Transform[] spawnPoints;
+    public int nbEnemies;
+    public int maxOfEnemies = 5;         
 
     private void Start()
     {
         timeToNextSpawn = CalculTimeToNextSpawn();
+        nbEnemies = 0;
     }
 
     /// <summary>
@@ -29,7 +32,7 @@ public class BlueSpawner : MonoBehaviour
     {
         timeToNextSpawn -= Time.deltaTime;
 
-        if (timeToNextSpawn <= 0)
+        if (timeToNextSpawn <= 0 && !MaxNbOfEnemies())
         {
             SpawnMob();
 
@@ -44,9 +47,8 @@ public class BlueSpawner : MonoBehaviour
     /// </summary>
     private void SpawnMob()
     {
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-
-        Instantiate(blueEnemy, spawnPoints[spawnPointIndex].position, Quaternion.identity);
+        nbEnemies++;
+        Instantiate(blueEnemy, transform.position, Quaternion.identity);
     }
 
     /// <summary>
@@ -61,5 +63,9 @@ public class BlueSpawner : MonoBehaviour
         nextTime = Random.Range(1f, 10f);
 
         return nextTime;
+    }
+    
+    private bool MaxNbOfEnemies(){
+        return (nbEnemies == maxOfEnemies);
     }
 }
