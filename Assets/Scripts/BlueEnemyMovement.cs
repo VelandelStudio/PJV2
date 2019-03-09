@@ -65,7 +65,7 @@ public class BlueEnemyMovement : MonoBehaviour
             else
             {                            // The enemy is close enough to explode
                 Instantiate(boom, transform.position, transform.rotation);
-                enemy.BeKilled();
+                enemy.Die();
             }
         }else{
             if (isNotOnTrack(transform.position, randomPointOnCircle) && !isOnTrack)
