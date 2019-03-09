@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Explosion : MonoBehaviour
 {
@@ -51,10 +52,10 @@ public class Explosion : MonoBehaviour
         rb1.AddForce(transform.forward * powerAttack, ForceMode.Impulse);
     }
 
-    private IEnumerator EndPushBack(CharacterController controller)
+    private IEnumerator EndPushBack(CharacterController comp)
     {
         yield return new WaitForSeconds(0.5f);
-        controller.enabled = true;
+        comp.enabled = true;
     }
 
     //closer the object is from the center, higher the impact of explosion will be.
