@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class BlueEnemyChildCollisionDetection : ChildCollisionDetectionImpl
 {
-    public override void OnChildrenDetectedCollisionEnter(Collider other)
+    public override void OnChildrenDetectedCollisionEnter(Collision collision)
     {
-        Debug.Log("Hello world : "+other);
+        if(collision.collider.transform.root.CompareTag("Player"))
+        {
+            GetComponent<BlueBehaviour>().Explodes();
+            Debug.Log("NotifyExplosion");
+            ShutdownCollisionDetectionService();
+        }
     }
 
     public override void OnChildrenDetectedCollisionExit(Collider other)

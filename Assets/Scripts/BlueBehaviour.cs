@@ -19,6 +19,7 @@ public class BlueBehaviour : MonoBehaviour
     private BezierWalkerWithSpeed bezierWalker;
 
     public bool HasArrived = false;
+    private bool chasePlayer;
 
     void Start()
     {
@@ -39,38 +40,57 @@ public class BlueBehaviour : MonoBehaviour
         {
             if(HasArrived)
             {
-                Destroy(destinationPoint.gameObject);
-                bezierSpline.transform.SetParent(null);
-                bezierWalker.enabled = true;
+                if(destinationPoint)
+                {
+                    Destroy(destinationPoint.gameObject);
+                }
+                if(bezierSpline)
+                {
+                    bezierSpline.transform.SetParent(null);
+                    bezierWalker.enabled = true;
+                }
             }
         }
 
-        float distJoueur = Vector3.Distance(player.position, transform.position);
-        if(distJoueur <= 1)
+        if (chasePlayer)
         {
-            Explodes();
+            nav.destination = player.position;
+            if(Vector3.Distance(transform.position, player.position) < 4f)
+            {
+                Explodes();
+            }
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.transform.root.CompareTag("Player"))
         {
             if(destinationPoint)
             {
                 Destroy(destinationPoint.gameObject);
             }
-            bezierWalker.enabled = false;
-            Destroy(bezierWalker);
-            Destroy(bezierSpline.transform.gameObject);
+            if (bezierSpline)
+            {
+                bezierWalker.enabled = false;
+                Destroy(bezierWalker);
+                Destroy(bezierSpline.transform.gameObject);
+            }
+            PS_EnemyLoadExplosion.SetActive(true);
 
             Invoke("Explodes", 30);
-            nav.destination = player.position;
+            chasePlayer = true;
         }
     }
-    public void Explodes ()
+    public void Explodes()
     {
+        CancelInvoke("Explodes");
+        chasePlayer = false;
         Instantiate(boom, transform.position, transform.rotation);
+        PS_EnemyExplosion.transform.SetParent(null);
+        PS_EnemyExplosion.SetActive(true);
+        Destroy(PS_EnemyExplosion, 10f);
+
         enemy.Die();
     }
 
