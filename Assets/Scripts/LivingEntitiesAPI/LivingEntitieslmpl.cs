@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
 {
-    public int HpEntity;
-    protected E_Type TypeEntity;
     protected Animator anim;
     protected Rigidbody rb;
     protected EnemyImpl enemy;
