@@ -8,8 +8,9 @@ public class RedEntity : LivingEntitiesMPL
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-
-        SetHP();
+        HP = 10;
+        SetHP(10);
+        Type = E_Type.red;
     }
 
     public override void PostDie()
@@ -22,6 +23,7 @@ public class RedEntity : LivingEntitiesMPL
 
     public override void PreDie()
     {
+        //needs IEnemies for ScorePoints
         GameManagement.instance.Score += scorePoints;
         anim.SetTrigger("isDead");
     }

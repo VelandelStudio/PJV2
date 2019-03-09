@@ -10,36 +10,13 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
     protected Animator anim;
     protected Rigidbody rb;
 
+    public int HP { get; protected set; }
 
-    public int HP
+    public E_Type Type { get; protected set; }
+
+    public void SetHP(int HP)
     {
-        get
-        {
-            return HP;    
-        }
-
-        protected set
-        {
-            HP = HpEntity;
-        }
-    }
-
-    public E_Type Type
-    {
-        get
-        {
-            return Type;
-        }
-
-        protected set
-        {
-            Type = TypeEntity;
-        }
-    }
-
-    public void SetHP()
-    {
-        HP = GameManagement.instance.Level * 5 + 10;
+        HP = GameManagement.instance.Level * 5 + HP;
     }
 
     public void Takedamage(int damage, E_Type unknownType)

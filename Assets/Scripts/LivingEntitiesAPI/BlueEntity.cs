@@ -8,9 +8,13 @@ public class BlueEntity : LivingEntitiesMPL
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        spawner = GameObject.FindObjectOfType<BlueSpawner>();
+        //NB of HP of BlueEnemy
+        HP = 5;
+        //nb of HP depends on the Level number
+        SetHP(HP);
+        Type = E_Type.blue;
 
-        SetHP();
+        spawner = GameObject.FindObjectOfType<BlueSpawner>();
     }
 
     public override void PostDie(){}
