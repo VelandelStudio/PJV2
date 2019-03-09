@@ -13,17 +13,6 @@ public class CharacterControllerLocker : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Check if bugs with isGrounded
-        if(isInAir && controller.isGrounded)
-        {
-            isInAir = false;
-            controller.enabled = true;
-        }
-    }
-
     public void LockControllerInAir()
     {
         controller.enabled = false;
@@ -36,11 +25,12 @@ public class CharacterControllerLocker : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         while (isInAir) {
+            if (isInAir && controller.isGrounded)
+            {
+                isInAir = false;
+                controller.enabled = true;
+            }
             yield return new WaitForSeconds(0.05f);
         }
     }
-
-
-
-
 }
