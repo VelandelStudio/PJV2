@@ -52,7 +52,7 @@ public class BlueEnemy : MonoBehaviour {
         {
             //Not sure about how the instantiate function works. 
             GameManagement.instance.Score += scorePoints;
-            Instantiate(boom, transform.position, transform.rotation);
+            GetComponent<BlueBehaviour>().Explodes();
             Die();
         }
     }
