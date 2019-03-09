@@ -53,7 +53,7 @@ public class BlueBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if(destinationPoint.gameObject)
+            if(destinationPoint)
             {
                 Destroy(destinationPoint.gameObject);
             }
@@ -83,10 +83,10 @@ public class BlueBehaviour : MonoBehaviour
             randomPointOnCircle = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
         }
 
-        if(i >= 20)
+        /*if(i >= 20)
         {
             Destroy(gameObject);
-        }
+        }*/
 
         return randomPointOnCircle;
     }
