@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using BezierSolution;
 
 public class BlueBehaviour : MonoBehaviour
 {
@@ -13,6 +12,9 @@ public class BlueBehaviour : MonoBehaviour
     private Vector3 startPoint;
 
     [SerializeField] private Transform destinationPoint;
+    [SerializeField] private BezierSpline bezierSpline;
+    private BezierWalkerWithSpeed bezierWalker;
+
     public bool HasArrived = false;
 
     void Start()
@@ -20,6 +22,7 @@ public class BlueBehaviour : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = GetComponent<BlueEnemy>();
+        bezierWalker = GetComponent<BezierWalkerWithSpeed>();
         destinationPoint.SetParent(null);
         startPoint = RandomPointOnSphere();
         nav.SetDestination(startPoint);
@@ -31,14 +34,11 @@ public class BlueBehaviour : MonoBehaviour
     {
         if (nav)
         {
-            //Debug.Log(message: nav.isStopped);
             if(HasArrived)
-
             {
-                Debug.Log("Je suis arrivée");
-                /*Vector3 pos = transform.position;
-                nav.destination = new Vector3(pos.x+10f, pos.y, pos.z+10f);
-                nav.isStopped = false;*/
+                Destroy(destinationPoint.gameObject);
+                bezierSpline.transform.SetParent(null);
+                bezierWalker.enabled = true;
             }
         }
 
@@ -53,6 +53,14 @@ public class BlueBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            if(destinationPoint.gameObject)
+            {
+                Destroy(destinationPoint.gameObject);
+            }
+            bezierWalker.enabled = false;
+            Destroy(bezierWalker);
+            Destroy(bezierSpline.transform.gameObject);
+
             Invoke("Explodes", 30);
             nav.destination = player.position;
         }
@@ -60,13 +68,26 @@ public class BlueBehaviour : MonoBehaviour
     public void Explodes ()
     {
         Instantiate(boom, transform.position, transform.rotation);
-        enemy.BeKilled();
-
+        enemy.Die();
     }
+
     private Vector3 RandomPointOnSphere()
     {
         Vector2 randomPoint = Random.insideUnitCircle * radius;
         Vector3 randomPointOnCircle = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
+
+        int i = 0;
+        while (!PositionManagement.Instance.IsInsideArena(randomPointOnCircle) && i < 20)
+        {
+            i++;
+            randomPointOnCircle = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
+        }
+
+        if(i >= 20)
+        {
+            Destroy(gameObject);
+        }
+
         return randomPointOnCircle;
     }
 }

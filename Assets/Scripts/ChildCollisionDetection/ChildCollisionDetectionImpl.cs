@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ChildCollisionDetectionImpl : MonoBehaviour, IChildCollisionDetection
 {
+
     public abstract void OnChildrenDetectedCollisionEnter(Collider other);
     public abstract void OnChildrenDetectedCollisionExit(Collider other);
     public abstract void OnChildrenDetectedCollisionStay(Collider other);

@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class BlueEnemy : MonoBehaviour {
 
-
     public string type = "blue";
     public Explosion boom;
 
@@ -17,17 +16,16 @@ public class BlueEnemy : MonoBehaviour {
 
     private void SetEnemyHp()
     {
-
         hp = GameManagement.instance.Level * 5 + 10;
     }
 
-    public void BeKilled()
+    public void Die()
     {
         rb.isKinematic = true;
         spawner.nbEnemies --;
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<NavMeshAgent>());
-        Destroy(gameObject, 5f);
+        Destroy(gameObject);
     }
 
     private void Awake()
@@ -55,7 +53,7 @@ public class BlueEnemy : MonoBehaviour {
             //Not sure about how the instantiate function works. 
             GameManagement.instance.Score += scorePoints;
             Instantiate(boom, transform.position, transform.rotation);
-            BeKilled();
+            Die();
         }
     }
 

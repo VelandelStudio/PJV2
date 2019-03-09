@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// ChildColliderDetector 
+/// </summary>
 public class ChildColliderDetector : MonoBehaviour
 {
     private IChildCollisionDetection childCollisionDetection;
