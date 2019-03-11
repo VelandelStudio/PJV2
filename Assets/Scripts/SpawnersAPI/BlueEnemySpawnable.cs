@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueEnemyISpawnable : MonoBehaviour, ISpawnables
+public class BlueEnemyspawn : MonoBehaviour, ISpawnables
 {
-    public GameObject blueEnemyISpawnable;
+    public GameObject blueEnemyspawn;
 
     public int maxSpawn
     {
@@ -38,7 +38,7 @@ public class BlueEnemyISpawnable : MonoBehaviour, ISpawnables
     private void SpawnMob()
     {
         nbEnemies++;
-        Instantiate(blueEnemyISpawnable, transform.position, Quaternion.identity);
+        Instantiate(BlueEnemyISpawnable, transform.position, Quaternion.identity);
     }
 
     private float CalculTimeToNextSpawn()

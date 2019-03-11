@@ -26,7 +26,7 @@ public class RedAttack : MonoBehaviour, IAttacks
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        SetPower(Puissance, );
+        SetPower(puissance,);
     }
 
     // Update is called once per frame

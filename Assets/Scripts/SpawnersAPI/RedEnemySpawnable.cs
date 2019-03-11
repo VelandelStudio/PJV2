@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemyISpawnable : MonoBehaviour, ISpawnables
+public class RedEnemyspawn : MonoBehaviour, ISpawnables
 {
-    public RedEnemyISpawnable redEnemyISpawnable;
+    public RedEnemyspawn redEnemypawn;
 
     private float timeToNextSpawn;
 
@@ -33,7 +33,7 @@ public class RedEnemyISpawnable : MonoBehaviour, ISpawnables
     
     private void SpawnMob()
     {
-        Instantiate(redEnemyISpawnable, transform.position, Quaternion.identity);
+        Instantiate(redEnemyspawnan, transform.position, Quaternion.identity);
     }
 
     private float CalculTimeToNextSpawn()
