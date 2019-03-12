@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ISpawnables
 {
-    int maxSpawn { get; }
-    float calculTimeToNextSpawn { get; }
-    void spawnMob();
+    int MaxSpawn { get; }
+    float CalculTimeToNextSpawn();
+    void SpawnMob();
 }

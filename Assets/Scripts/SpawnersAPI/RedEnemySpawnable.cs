@@ -8,7 +8,7 @@ public class RedEnemyspawn : MonoBehaviour, ISpawnables
 
     private float timeToNextSpawn;
 
-    public int maxSpawn
+    public int MaxSpawn
     {
         get;
         protected set;
@@ -31,12 +31,12 @@ public class RedEnemyspawn : MonoBehaviour, ISpawnables
         }
     }
     
-    private void SpawnMob()
+    public void SpawnMob()
     {
         Instantiate(redEnemyspawnan, transform.position, Quaternion.identity);
     }
 
-    private float CalculTimeToNextSpawn()
+    public float CalculTimeToNextSpawn()
     {
         float nextTime = 0f;
 

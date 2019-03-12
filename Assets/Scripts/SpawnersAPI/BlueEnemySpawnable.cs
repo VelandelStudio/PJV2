@@ -6,7 +6,7 @@ public class BlueEnemyspawn : MonoBehaviour, ISpawnables
 {
     public GameObject blueEnemyspawn;
 
-    public int maxSpawn
+    public int MaxSpawn
     {
         get;
         protected set;
@@ -35,13 +35,13 @@ public class BlueEnemyspawn : MonoBehaviour, ISpawnables
         }
     }
     
-    private void SpawnMob()
+    public void SpawnMob()
     {
         nbEnemies++;
         Instantiate(BlueEnemyISpawnable, transform.position, Quaternion.identity);
     }
 
-    private float CalculTimeToNextSpawn()
+    public float CalculTimeToNextSpawn()
     {
         float nextTime = 0f;
 
