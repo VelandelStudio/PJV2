@@ -8,6 +8,6 @@ public class RedEnemyStat : EnemyImpl
     {
         DetectionField = 6;
         ScoreValue = 15;
-        forceIndividu = 3;
+        ForceIndividu = 3;
     }
 }

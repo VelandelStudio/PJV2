@@ -6,6 +6,7 @@ public interface IEnemies {
 
     int DetectionField { get; }
     int ScoreValue { get; }
+    int ForceIndividu { get; }
 
     //Attack[] Attacks { get; }
     //Movement[] Movements { get; }
