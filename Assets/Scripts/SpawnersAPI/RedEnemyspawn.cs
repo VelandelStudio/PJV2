@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RedEnemyspawn : MonoBehaviour, ISpawnables
 {
-    public RedEnemyspawn redEnemypawn;
     private RedEntity enemy;
     private float timeToNextSpawn;
 
