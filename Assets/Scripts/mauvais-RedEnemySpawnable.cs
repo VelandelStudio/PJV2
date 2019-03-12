@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemyspawn : MonoBehaviour, ISpawnables
+public class RedEnemyISpawnable : MonoBehaviour, ISpawnables
 {
-    public RedEnemyspawn redEnemypawn;
+    public RedEnemyISpawnable redEnemyISpawnable;
 
     private float timeToNextSpawn;
 
-    public int MaxSpawn
+    public int maxSpawn
     {
         get;
         protected set;
@@ -31,12 +31,12 @@ public class RedEnemyspawn : MonoBehaviour, ISpawnables
         }
     }
     
-    public void SpawnMob()
+    private void SpawnMob()
     {
-        Instantiate(redEnemyspawnan, transform.position, Quaternion.identity);
+        Instantiate(redEnemyISpawnable, transform.position, Quaternion.identity);
     }
 
-    public float CalculTimeToNextSpawn()
+    private float CalculTimeToNextSpawn()
     {
         float nextTime = 0f;
 

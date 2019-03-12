@@ -6,8 +6,8 @@ public class RedEnemyStat : EnemyImpl
 {
     void Awake()
     {
-        DetectionField = 1;
+        DetectionField = 6;
         ScoreValue = 15;
-        forceIndividu =3;
+        forceIndividu = 3;
     }
 }
