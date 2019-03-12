@@ -15,6 +15,11 @@ public abstract class EnemyImpl : MonoBehaviour, IEnemies
         get;
         protected set;
     }
+    public int ForceIndividu
+    {
+        get;
+        protected set;
+    }
     /*
      Attack[] Attacks {get;}
      Movement[] Movements {get;}
