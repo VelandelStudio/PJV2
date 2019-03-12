@@ -19,7 +19,7 @@ public class BlueBehaviour : MonoBehaviour
     private BezierWalkerWithSpeed bezierWalker;
 
     public bool HasArrived = false;
-    private bool chasePlayer;
+    public bool chasePlayer;
 
     void Start()
     {
@@ -52,14 +52,14 @@ public class BlueBehaviour : MonoBehaviour
             }
         }
 
-        if (chasePlayer)
+        /*if (chasePlayer)
         {
             nav.destination = player.position;
             if(Vector3.Distance(transform.position, player.position) < 4f)
             {
                 Explodes();
             }
-        }
+        }*/
     }
 
     public void OnTriggerEnter(Collider other)
