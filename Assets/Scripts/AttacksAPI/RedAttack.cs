@@ -17,7 +17,7 @@ public class RedAttack : MonoBehaviour, IAttacks
 
         if (playerHealth)
         {
-            playerHealth.Takedamage(Puissance,E_Type.red);
+            playerHealth.Takedamage(Puissance, playerHealth.Type);
         }
     }
 
@@ -32,7 +32,7 @@ public class RedAttack : MonoBehaviour, IAttacks
         enemy = GetComponent<RedEnemyStat>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        Puissance = SetPower(Puissance, enemy.ForceIndividu);
     }
 
     // Update is called once per frame

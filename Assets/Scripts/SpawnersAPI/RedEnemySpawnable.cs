@@ -5,7 +5,7 @@ using UnityEngine;
 public class RedEnemyspawn : MonoBehaviour, ISpawnables
 {
     public RedEnemyspawn redEnemypawn;
-
+    private RedEntity enemy;
     private float timeToNextSpawn;
 
     public int MaxSpawn
@@ -33,7 +33,7 @@ public class RedEnemyspawn : MonoBehaviour, ISpawnables
     
     public void SpawnMob()
     {
-        Instantiate(redEnemyspawnan, transform.position, Quaternion.identity);
+        Instantiate(enemy, transform.position, Quaternion.identity);
     }
 
     public float CalculTimeToNextSpawn()
