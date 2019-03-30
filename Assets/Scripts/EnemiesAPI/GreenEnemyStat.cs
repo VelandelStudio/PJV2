@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueEnemyStat : EnemyImpl
+public class GreenEnemyStat : EnemyImpl
 {
     public override void AttributeValues()
     {
-        DetectionField = 1500;
-        ScoreValue = 20;
+        DetectionField = 125;
+        ScoreValue = 10;
+        ForceIndividu = 50;
     }
 }

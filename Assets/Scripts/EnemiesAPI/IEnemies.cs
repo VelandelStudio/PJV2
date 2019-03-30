@@ -8,6 +8,7 @@ public interface IEnemies {
     int ScoreValue { get; }
     int ForceIndividu { get; }
 
+    void AttributeValues();
     //Attack[] Attacks { get; }
     //Movement[] Movements { get; }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedEnemyStat : EnemyImpl
 {
-    void Awake()
+    public override void AttributeValues()
     {
         DetectionField = 6;
         ScoreValue = 15;
