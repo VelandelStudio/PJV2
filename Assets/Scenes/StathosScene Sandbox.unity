@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06591517, g: 0.024987318, b: 0.0010396887, a: 1}
+  m_IndirectSpecularColor: {r: 0.06594418, g: 0.025002768, b: 0.0010406086, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -325,7 +325,7 @@ Transform:
 --- !u!199 &279932597
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5968,7 +5968,7 @@ Transform:
 --- !u!199 &556559670
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 199973420275222782, guid: 50e62d12bec067b4f913520c1d3334e7,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -11270,7 +11270,7 @@ Transform:
 --- !u!199 &1272850343
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16033,7 +16033,7 @@ Transform:
 --- !u!199 &1327906269
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 199268428463001276, guid: 50e62d12bec067b4f913520c1d3334e7,
     type: 3}
   m_PrefabInstance: {fileID: 0}
