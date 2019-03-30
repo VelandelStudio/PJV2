@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum E_Type 
 {
-    player,
-    red,
-    blue,
+    player = 0,
+    red = 1,
+    blue = 2,
+    green = 3
 };

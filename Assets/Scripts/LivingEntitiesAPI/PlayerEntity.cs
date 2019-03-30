@@ -14,11 +14,9 @@ public class PlayerEntity : LivingEntitiesMPL
 
     public override void PostDie()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void PreDie()
     {
-        throw new System.NotImplementedException();
     }
 }

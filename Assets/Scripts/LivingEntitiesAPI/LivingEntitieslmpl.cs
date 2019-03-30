@@ -9,9 +9,11 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
     protected Rigidbody rb;
     protected EnemyImpl enemy;
 
-    public int HP { get; protected set; }
+    [SerializeField] private int hp;
+    public int HP { get { return hp; } protected set { hp = value; } }
 
-    public E_Type Type { get; protected set; }
+    [SerializeField] private E_Type type;
+    public E_Type Type { get { return type; } protected set { type = value; } }
 
     public void SetHP(int HP)
     {
@@ -38,12 +40,21 @@ public abstract class LivingEntitiesMPL : MonoBehaviour, ILivingEntities
     public void Die()
     {
         PreDie();
-        rb.isKinematic = true;
+        if(rb)
+        {
+            rb.isKinematic = true;
+        }
+
         Destroy(GetComponent<Collider>());
-        Destroy(GetComponent<NavMeshAgent>());
-        Destroy(gameObject);
+        if(GetComponent<NavMeshAgent>())
+        {
+            Destroy(GetComponent<NavMeshAgent>());
+        }
+
         PostDie();
+        Destroy(gameObject);
     }
+
 
     public abstract void PreDie();
     public abstract void PostDie();

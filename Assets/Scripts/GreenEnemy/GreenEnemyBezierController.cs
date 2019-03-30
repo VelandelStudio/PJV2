@@ -15,7 +15,7 @@ public class GreenEnemyBezierController : MonoBehaviour
     /// When the spline is created, we detach it from the greenEnemy.
     /// </summary>
     /// <param name="target"></param>
-    public void CreateCustomBezierSpline(Vector3 target)
+    public BezierSpline CreateCustomBezierSpline(Vector3 target)
     {
         GameObject inst = Instantiate(bezierSplineModel, transform.position, Quaternion.identity, transform);
         Transform START_POINT = inst.transform.GetChild(0);
@@ -27,6 +27,7 @@ public class GreenEnemyBezierController : MonoBehaviour
         inst.GetComponent<BezierSpline>().AutoConstructSpline();
         inst.transform.SetParent(null);
         Destroy(inst, 10f);
+        return inst.GetComponent<BezierSpline>();
     }
 
 #if DEVELOPMENT_BUILD || UNITY_EDITOR

@@ -47,6 +47,12 @@ public class RedBullet : MonoBehaviour {
             target.TakeDamage(damage, this.type);
         }
 
+        if(other.GetComponentInParent<ILivingEntities>() != null)
+        {
+            ILivingEntities target = other.GetComponentInParent<ILivingEntities>();
+            target.Takedamage(damage, E_Type.red);
+        }
+
         Destroy(gameObject);
     }
 
